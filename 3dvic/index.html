@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontier Crafter 3D</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="panel left-panel">
+        <div class="brand">
+          <p class="eyebrow">Acik Dunya 3D Craft</p>
+          <h1>Frontier Crafter</h1>
+          <p class="lede">
+            Ciftci, avci veya uretici olarak buyuk haritada gez, kaynak topla,
+            ekim yap, avlan, craft et ve kampini gelistir.
+          </p>
+        </div>
+
+        <section class="card">
+          <h2>Rol Secimi</h2>
+          <div id="roleButtons" class="role-grid"></div>
+          <p id="roleDescription" class="muted"></p>
+        </section>
+
+        <section class="card">
+          <h2>Kontroller</h2>
+          <ul class="compact-list">
+            <li><span>Hareket</span><strong>W A S D</strong></li>
+            <li><span>Bakis</span><strong>Mouse / Sol - Sag</strong></li>
+            <li><span>Kos</span><strong>Shift</strong></li>
+            <li><span>Ziplama</span><strong>Space</strong></li>
+            <li><span>Etkilesim</span><strong>E</strong></li>
+            <li><span>Ekim / Hasat</span><strong>F</strong></li>
+            <li><span>Mouse Kilidi</span><strong>Tikla / ESC</strong></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Crafting</h2>
+          <div id="craftingList" class="craft-list"></div>
+        </section>
+      </aside>
+
+      <main class="viewport">
+        <canvas id="gameCanvas" width="960" height="540"></canvas>
+        <button id="pointerLockHint" class="center-hint" type="button">
+          Oyuna tikla, mouse ile bak ve daha akici kontrol et
+        </button>
+        <div id="interactionPrompt" class="interaction-prompt hidden"></div>
+        <div class="hud-top">
+          <div class="pill"><span>Gun</span><strong id="dayLabel">1</strong></div>
+          <div class="pill"><span>Saat</span><strong id="timeLabel">06:00</strong></div>
+          <div class="pill"><span>Rol</span><strong id="roleLabel">Secilmedi</strong></div>
+          <div class="pill"><span>Can</span><strong id="healthLabel">100</strong></div>
+          <div class="pill"><span>Enerji</span><strong id="energyLabel">100</strong></div>
+        </div>
+
+        <div class="hud-bottom">
+          <div class="message-box">
+            <h3>Durum</h3>
+            <p id="messageLog">
+              Haritaya hos geldin. Rol sec, sonra kaynak toplamaya basla.
+            </p>
+          </div>
+          <div class="minimap-card">
+            <canvas id="minimap" width="220" height="220"></canvas>
+          </div>
+        </div>
+      </main>
+
+      <aside class="panel right-panel">
+        <section class="card">
+          <h2>Gorevler</h2>
+          <div id="questList" class="quest-list"></div>
+        </section>
+
+        <section class="card">
+          <h2>Envanter</h2>
+          <div id="inventoryList" class="inventory-list"></div>
+        </section>
+
+        <section class="card">
+          <h2>Dunya Bilgisi</h2>
+          <ul class="compact-list">
+            <li><span>Harita</span><strong>64 x 64</strong></li>
+            <li><span>Bolgeler</span><strong>Orman, tarla, gol, kaya</strong></li>
+            <li><span>Sistemler</span><strong>Craft, farming, hunting</strong></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <script src="./game.js"></script>
+  </body>
+  </html>
