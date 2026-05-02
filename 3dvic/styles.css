@@ -1,0 +1,305 @@
+:root {
+  --bg: #101814;
+  --panel: rgba(17, 31, 25, 0.92);
+  --card: rgba(31, 52, 43, 0.92);
+  --line: rgba(151, 199, 164, 0.24);
+  --text: #e9f4ea;
+  --muted: #a8c1ae;
+  --accent: #83d483;
+  --accent-strong: #c6f36a;
+  --warning: #f8ce6d;
+  --danger: #ff7f7f;
+  --shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(121, 172, 108, 0.12), transparent 28%),
+    linear-gradient(135deg, #0d1512, #15241d 45%, #0f1814);
+  color: var(--text);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr) 320px;
+  gap: 18px;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.panel,
+.viewport {
+  min-height: calc(100vh - 36px);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  overflow: auto;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent-strong);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.lede,
+.muted {
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.card h2,
+.message-box h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.role-grid,
+.craft-list,
+.quest-list,
+.inventory-list {
+  display: grid;
+  gap: 10px;
+}
+
+.role-btn,
+.craft-btn {
+  width: 100%;
+  border: 1px solid rgba(198, 243, 106, 0.25);
+  background: rgba(109, 152, 92, 0.16);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.role-btn:hover,
+.craft-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(198, 243, 106, 0.6);
+  background: rgba(109, 152, 92, 0.26);
+}
+
+.role-btn.active {
+  border-color: var(--accent-strong);
+  background: rgba(198, 243, 106, 0.18);
+}
+
+.viewport {
+  position: relative;
+  background: rgba(9, 16, 13, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.center-hint,
+.interaction-prompt {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(198, 243, 106, 0.35);
+  background: rgba(8, 16, 13, 0.8);
+  color: var(--text);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.center-hint {
+  top: 22px;
+  z-index: 3;
+  border-radius: 999px;
+  padding: 10px 18px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.interaction-prompt {
+  bottom: 110px;
+  z-index: 3;
+  border-radius: 16px;
+  padding: 10px 14px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hud-top,
+.hud-bottom {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.hud-top {
+  top: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hud-bottom {
+  bottom: 18px;
+  align-items: flex-end;
+}
+
+.pill,
+.message-box,
+.minimap-card {
+  background: rgba(9, 21, 16, 0.82);
+  border: 1px solid rgba(174, 220, 182, 0.2);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+}
+
+.pill {
+  min-width: 108px;
+  padding: 10px 14px;
+}
+
+.pill span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.pill strong {
+  font-size: 1rem;
+}
+
+.message-box {
+  width: min(380px, 48vw);
+  padding: 14px 16px;
+}
+
+.message-box p {
+  margin: 0;
+  color: var(--text);
+}
+
+.minimap-card {
+  padding: 10px;
+}
+
+#minimap {
+  display: block;
+  border-radius: 14px;
+}
+
+.compact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 9px;
+}
+
+.compact-list li,
+.list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.compact-list span,
+.list-copy small {
+  color: var(--muted);
+}
+
+.quest-item.done {
+  border: 1px solid rgba(131, 212, 131, 0.45);
+}
+
+.quest-item.current {
+  border: 1px solid rgba(248, 206, 109, 0.5);
+}
+
+.craft-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 1300px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  .viewport {
+    min-height: auto;
+  }
+
+  .viewport {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .panel {
+    border-radius: 20px;
+  }
+
+  .viewport {
+    border-radius: 22px;
+    height: 58vh;
+  }
+
+  .hud-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .message-box {
+    width: 100%;
+  }
+}
